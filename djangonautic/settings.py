@@ -122,9 +122,16 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# Django's static file handling: Django's static file handling, configured through
+# the STATIC_URL and STATICFILES_DIRS settings in your settings.py, takes over. It
+# looks for the style.css file in the directories listed in STATICFILES_DIRS (in
+# your case, it's 'assets'), and when found, it serves that file in response to the
+# browser's request.
+# CSS applied: Finally, the browser receives the style.css file and applies the
+# specified styles to your HTML page.
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

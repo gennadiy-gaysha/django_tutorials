@@ -1,10 +1,29 @@
+<!--loading the static template tag library-->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<!--    static tag library provides the static template tag, -->
+<!--    which helps us manage and serve static files, like CSS, JavaScript, and images.-->
+<!--    When Django processes this template, the /static 'style.css'/ template tag is -->
+<!--    replaced with the actual URL to your static file, which is /static/style.css. This -->
+<!--    URL is generated based on the STATIC_URL setting in your settings.py file.-->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Articles</title>
 </head>
 <body>
-  <h1>Article List</h1>
+<h1>Article List</h1>
+<div class="articles">
+    {%for article in articles%}
+    <div class="article">
+        <h2><a href="">{{article.title}}</a></h2>
+        <p>{{article.snippet}}</p>
+        <p>{{article.date}}</p>
+    </div>
+    {%endfor%}
+</div>
+
 </body>
 </html>
